@@ -13,7 +13,7 @@ namespace MarvelAPI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View() ;
         }
     }
 }
