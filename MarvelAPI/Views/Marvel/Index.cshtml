@@ -1,0 +1,56 @@
+﻿@model List<Hero>
+@{
+    ViewData["Title"] = "Api Marvel";
+}
+
+<h2>Marvel</h2>
+
+@* PAGINACAO *@
+<div>
+    <nav aria-label="Page Navigation">
+        <ul class="pagination">
+            @if (ViewBag.Paging.CurrentPage == 0)
+            {
+                <li class="page-item"><a class="page-link">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", new { page = ViewBag.Paging.CurrentPage + 1})">Next</a></li>
+            }
+            else if (ViewBag.Paging.CurrentPage > 0)
+            {
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Marvel", new { page = ViewBag.Paging.CurrentPage - 1})">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Marvel", new { page = ViewBag.Paging.CurrentPage + 1})">Next</a></li>
+            }
+        </ul>
+    </nav>
+</div>
+
+@* CARDS *@
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var heroi in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            <img class="img" src="@heroi.ImageUrl" alt="Card image cap">
+                        </th>
+                        <td>@heroi.Name</td>
+                        <td>@heroi.Description</td>
+                        <td><a href="@heroi.WikiUrl" class="btn btn-danger btn-sm" target="_blank">Wiki Hero</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

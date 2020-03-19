@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<div class="row">
+    <div class="text-center cardIndex col-lg-6">
+        <div class="card">
+            <img class="card-img-top" src="~/images/marvel-logo.jpg" alt="Card Marvel">
+            <div class="card-body">
+                <h5 class="card-title">RESTful API Marvel</h5>
+                <p class="card-text">An exemple using Marvel API RESTful with .NET Core</p>
+                @Html.ActionLink("Go!!", "Index", "Marvel", new { id = 0 }, new { @class = "btn btn-xs btn-primary" })
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center cardIndex col-lg-6">
+        <div class="card">
+            <img class="card-img-top" src="~/images/gihub.png" alt="Card GitHub">
+            <div class="card-body">
+                <h5 class="card-title">API Project and Documentation</h5>
+                <p class="card-text">Take a look at the implementation with .NET Core API avaliable at my GitHub</p>
+                <a href="https://github.com/luangrezende/MarvelApi-DotNetCore" class="btn btn-sm btn-secondary" id="btnGitHub">Access!</a>
+            </div>
+        </div>
+    </div>
+
+</div>
